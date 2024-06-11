@@ -19,6 +19,7 @@ torch==1.7.1
 torch-geometric==2.3.1
 scikit-learn==1.0.2
 pandas==1.3.5
+pickleshare==0.7.5
 shapely==2.0.1
 faiss-cpu==1.7.4
 ```
