@@ -10,11 +10,11 @@ import json
 from torch.utils.tensorboard import SummaryWriter
 from datetime import datetime
 from JGRM import JGRMModel
-from cl_loss import get_traj_cl_loss, get_road_cl_loss, get_traj_cluster_loss, get_traj_match_loss
+from cl_loss import get_traj_match_loss
 from dcl import DCL
 import os
 
-dev_id = 2
+dev_id = 0
 os.environ['CUDA_VISIBLE_DEVICES'] = str(dev_id)
 torch.cuda.set_device(dev_id)
 torch.set_num_threads(10)
@@ -60,14 +60,15 @@ def train(config):
     mask_length = config['mask_length']
     mask_prob = config['mask_prob']
 
-    # 设置随机种子
+    # define seed
     setup_seed(seed)
 
     # define model, parmeters and optimizer
     edge_index = np.load(adj_path)
     model = JGRMModel(vocab_size, route_max_len, road_feat_num, road_embed_size, gps_feat_num,
                       gps_embed_size, route_embed_size, hidden_size, edge_index, drop_edge_rate, drop_route_rate, drop_road_rate, mode='x').cuda()
-    init_road_emb = torch.load('/data1/mazp/dataset/JMTR/didi_{}/init_w2v_road_emb.pt'.format(city), map_location='cuda:{}'.format(dev_id))
+    # Modify it to your own directory
+    init_road_emb = torch.load('D:/research/dataset/JMTR/didi_{}/init_w2v_road_emb.pt'.format(city), map_location='cuda:{}'.format(dev_id))
     model.node_embedding.weight = torch.nn.Parameter(init_road_emb['init_road_embd'])
     model.node_embedding.requires_grad_(True)
     print('load parameters in device {}'.format(model.node_embedding.weight.device)) # check process device
@@ -124,7 +125,7 @@ def train(config):
             gps_road_list, route_road_list, gps_road_joint_list, route_road_joint_list = [], [], [], []
             now_flatten_idx = 0
             for i, length in enumerate(route_length):
-                y_label.append(route_assign_mat[i, :length]) # route 和 gps mask 位置是一样的
+                y_label.append(route_assign_mat[i, :length]) # the mask location in route and gps traj is same
                 gps_road_list.append(gps_road_rep[i, :length])
                 route_road_list.append(route_road_rep[i, :length])
                 gps_road_joint_list.append(gps_road_joint_rep[i, :length])
@@ -158,12 +159,12 @@ def train(config):
             y_label = y_label[masked_pos].long()
 
             # (MLM 1 LOSS) get gps rep road loss
-            gps_mlm_pred = model.gps_mlm_head(gps_road_joint_rep) # project head 也会被更新
+            gps_mlm_pred = model.gps_mlm_head(gps_road_joint_rep) # project head update
             masked_gps_mlm_pred = gps_mlm_pred[masked_pos]
             gps_mlm_loss = nn.CrossEntropyLoss()(masked_gps_mlm_pred, y_label)
 
             # (MLM 2 LOSS) get route rep road loss
-            route_mlm_pred = model.route_mlm_head(route_road_joint_rep) # project head 也会被更新
+            route_mlm_pred = model.route_mlm_head(route_road_joint_rep) # project head update
             masked_route_mlm_pred = route_mlm_pred[masked_pos]
             route_mlm_loss = nn.CrossEntropyLoss()(masked_route_mlm_pred, y_label)
 
