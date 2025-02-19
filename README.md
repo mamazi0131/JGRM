@@ -2,6 +2,8 @@
 
 ## Latest News
 
+**📅 19/02/2025: WE RELEASE THE EXPANDED VERSIONS OF BOTH DATASETS AND FIXED THE ISSUES WITH THE PREVIOUS DATASET [HERE](https://pan.quark.cn/s/461b8477b9fe).**
+
 **📅 18/04/2024: FULL [SLIDE](https://www.slideshare.net/slideshow/more-than-routing-joint-gps-and-route-modeling-for-refine-trajectory-representation-learning/269319522) IS UPDATED.**
 
 **📅 18/03/2024: A SHORT [VIDEO](https://www.youtube.com/watch?v=IA3quCF0LWM) OF PRESENTATION AT WWW2024.**
@@ -25,7 +27,10 @@ faiss-cpu==1.7.4
 ```
 
 ## Dataset
-You can access our data [here](https://pan.quark.cn/s/25da092b0b64).
+We recently revisited the project and discovered that the previously released dataset could not be imported due to transmission issues. We have re-uploaded and verified the relevant data, and further supplemented the dataset with a 200k version to facilitate comparison for everyone.
+
+You can access our data [here](https://pan.quark.cn/s/461b8477b9fe) **2025.02.19 UPDATED**.
+
 The folder contains a total of two datasets, Chengdu and Xi'an. Each folder contains 7 files with the following file directory:
 ```
 |----Chengdu\
