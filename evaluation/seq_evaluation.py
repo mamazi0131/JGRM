@@ -7,7 +7,7 @@ import time
 import pickle
 from utils import Logger
 import argparse
-from JTMR import JMTRModel
+from JGRM import JGRMModel
 from task import road_cls, speed_inf, time_est, sim_srh
 from evluation_utils import get_road, fair_sampling, get_seq_emb_from_traj_withRouteOnly, get_seq_emb_from_traj_withALLModel, prepare_data
 import torch
