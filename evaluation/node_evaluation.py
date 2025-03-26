@@ -80,56 +80,8 @@ def evaluation(city, exp_path, model_name, start_time):
 if __name__ == '__main__':
 
     city = 'chengdu'
-    # city = 'xian'
-
-    # exp_path = 'D:/research/exp/JTMR_now2v_chengdu_230905234531'
-    # model_name = 'JTMR_now2v_chengdu_v1_20_100000_230905234531_19.pt'
-
-    # exp_path = 'D:/research/exp/JTMR_xian_230823032506'
-    # model_name = 'JTMR_xian_v1_20_100000_230823032506_19.pt'
-
-    # exp_path = 'D:/research/exp/JTMR_chengdu_230911144056'
-    # model_name = 'JTMR_chengdu_finetune_20_5000_230911144056_19.pt'
-
-    # exp_path = 'D:/research/exp/JTMR_xian_230911151138'
-    # model_name = 'JTMR_xian_finetune_20_5000_230911151138_19.pt'
-
-    # exp_path = 'D:/research/exp/JTMR_chengdu_230911182001'
-    # model_name = 'JTMR_chengdu_v1_20_50000_230911182001_19.pt'
-
-    # exp_path = 'D:/research/exp/JTMR_chengdu_230906140616'
-    # model_name = 'JTMR_chengdu_v1_20_100000_230906140616_19.pt'
-
-    # 从这里开始
-    # exp_path = 'D:/research/exp/JTMR_chengdu_230912215305'
-    # model_name = 'JTMR_chengdu_v1_20_100000_230912215305_19.pt'
-
-    # exp_path = 'D:/research/exp/JTMR_chengdu_230912215549'
-    # model_name = 'JTMR_chengdu_v1_20_100000_230912215549_19.pt'
-
-    # exp_path = 'D:/research/exp/JTMR_chengdu_230912220101'
-    # model_name = 'JTMR_chengdu_v1_20_100000_230912220101_19.pt'
-
-    # exp_path = 'D:/research/exp/JTMR_chengdu_230913163941'
-    # model_name = 'JTMR_chengdu_v1_20_100000_230913163941_19.pt'
-
-    # exp_path = 'D:/research/exp/JTMR_chengdu_230913164227'
-    # model_name = 'JTMR_chengdu_v1_20_100000_230913164227_19.pt'
-
-    # exp_path = 'D:/research/exp/JTMR_chengdu_230913164332'
-    # model_name = 'JTMR_chengdu_v1_20_100000_230913164332_19.pt'
-
-    # exp_path = 'D:/research/exp/JTMR_chengdu_230913165631'
-    # model_name = 'JTMR_chengdu_v1_20_100000_230913165631_19.pt'
-
-    # exp_path = 'D:/research/exp/JTMR_chengdu_230913165648'
-    # model_name = 'JTMR_chengdu_v1_20_100000_230913165648_19.pt'
-
     exp_path = 'D:/research/exp/JTMR_chengdu_230913165723'
     model_name = 'JTMR_chengdu_v1_20_100000_230913165723_19.pt'
-
-
-    print(exp_path)
 
     start_time = time.time()
     log_path = os.path.join(exp_path, 'evaluation')
@@ -137,12 +89,4 @@ if __name__ == '__main__':
     # sys.stderr = Logger(log_path, start_time, stream=sys.stderr)  # record error
 
     evaluation(city, exp_path, model_name, start_time)
-
-# 5w
-# road classification     | micro F1: 0.7031, macro F1: 0.7067
-# travel speed estimation | MAE: 3.0330, RMSE: 4.0309
-# travel time estimation  | MAE: 83.5865, RMSE: 111.6610
-# similarity search       | Mean Rank: 2.9798, HR@10: 0.9320, No Hit: 0.0
-
-# road classification     | micro F1: 0.7331, macro F1: 0.7361
-# travel speed estimation | MAE: 2.6225, RMSE: 3.5866
+    
