@@ -134,12 +134,6 @@ def evaluation(source_city, target_city, exp_path, model_name, start_time):
 
 if __name__ == '__main__':
 
-    # source_city = 'chengdu'
-    # target_city = 'xian'
-    #
-    # exp_path = 'D:/research/exp/JTMR_chengdu_230822153727'
-    # model_name = 'JTMR_chengdu_v1_20_100000_230822153727_19.pt'
-
     source_city = 'xian'
     target_city = 'chengdu'
 
@@ -152,28 +146,3 @@ if __name__ == '__main__':
     # sys.stderr = Logger(log_path, start_time, stream=sys.stderr)  # record error
 
     evaluation(source_city, target_city, exp_path, model_name, start_time)
-
-# chengdu --> xian zero-shot
-# road classification     | micro F1: 0.7252, macro F1: 0.6873
-# travel speed estimation | MAE: 2.2425, RMSE: 3.1753
-# travel time estimation  | MAE: 109.2060, RMSE: 141.6533
-# similarity search       | Mean Rank: 79.6869, HR@10: 0.4534, No Hit: 724.5
-
-# chengdu --> xian finetune 5k trajectory
-# road classification     | micro F1: 0.7295, macro F1: 0.6916
-# travel speed estimation | MAE: 2.4765, RMSE: 3.4221
-# travel time estimation  | MAE: 106.5079, RMSE: 139.2584
-# similarity search       | Mean Rank: 64.6180, HR@10: 0.5007, No Hit: 249.3
-
-# xian --> chengdu zero-shot
-# road classification     | micro F1: 0.6712, macro F1: 0.6662
-# travel speed estimation | MAE: 2.6491, RMSE: 3.6021
-# travel time estimation  | MAE: 105.2994, RMSE: 134.9308
-# similarity search       | Mean Rank: 61.8339, HR@10: 0.5277, No Hit: 534.6
-
-# xian --> chengdu finetune 5k trajectory
-# road classification     | micro F1: 0.6802, macro F1: 0.6779
-# travel speed estimation | MAE: 2.8148, RMSE: 3.7797
-# travel time estimation  | MAE: 99.1057, RMSE: 128.7578
-# similarity search       | Mean Rank: 53.6787, HR@10: 0.5632, No Hit: 190.8
-
