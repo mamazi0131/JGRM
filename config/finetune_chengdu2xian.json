@@ -1,8 +1,8 @@
 {
   "source_city": "chengdu",
   "target_city": "xian",
-  "exp_path": "D:/research/exp/JGRM_chengdu_230822153727",
-  "model_name": "JGRM_chengdu_v1_20_100000_230822153727_19.pt",
+  "exp_path": "D:/research/exp/JTMR_chengdu_230822153727",
+  "model_name": "JTMR_chengdu_v1_20_100000_230822153727_19.pt",
   "vocab_size": 4996,
   "num_samples": 5000,
   "data_path": "D:/research/dataset/JMTR/didi_xian/xian_1101_1115_data_sample10w.pkl",

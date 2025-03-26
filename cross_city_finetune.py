@@ -78,9 +78,9 @@ def finetune(config):
     optimizer = AdamW(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
 
     nowtime = datetime.now().strftime("%y%m%d%H%M%S")
-    model_name = 'JGRM_{}_{}_{}_{}_{}'.format(target_city, version, num_epochs, num_samples, nowtime)
-    model_path = os.path.join(save_path, 'JGRM_{}_{}'.format(target_city, nowtime), 'model')
-    log_path = os.path.join(save_path, 'JGRM_{}_{}'.format(target_city, nowtime), 'log')
+    model_name = 'JTMR_{}_{}_{}_{}_{}'.format(target_city, version, num_epochs, num_samples, nowtime)
+    model_path = os.path.join(save_path, 'JTMR_{}_{}'.format(target_city, nowtime), 'model')
+    log_path = os.path.join(save_path, 'JTMR_{}_{}'.format(target_city, nowtime), 'log')
 
     if not os.path.exists(model_path):
         os.makedirs(model_path)
@@ -190,4 +190,4 @@ if __name__ == '__main__':
     target_city = 'xian'
     config = json.load(open('config/finetune_{}2{}.json'.format(source_city, target_city), 'r'))
     finetune(config)
-    
+

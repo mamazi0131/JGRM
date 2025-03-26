@@ -28,17 +28,17 @@ def evaluation(source_city, target_city, exp_path, model_name, start_time):
     embedding_name = model_name.split('.')[0]
 
     # load task 1 & task2 label
-    feature_df = pd.read_csv("D:/research/dataset/JMTR/didi_{}/edge_features.csv".format(target_city))
+    feature_df = pd.read_csv("D:/research/dataset/JGRM/didi_{}/edge_features.csv".format(target_city))
     num_nodes = len(feature_df)
     print("num_nodes:", num_nodes)
 
     # load adj
-    edge_index = np.load("D:/research/dataset/JMTR/didi_{}/line_graph_edge_idx.npy".format(target_city))
+    edge_index = np.load("D:/research/dataset/JGRM/didi_{}/line_graph_edge_idx.npy".format(target_city))
     print("edge_index shape:", edge_index.shape)
 
     # load origin train data
     test_node_data = pickle.load(
-        open('D:/research/dataset/JMTR/didi_{}/{}_1101_1115_data_sample10w.pkl'.format(target_city, target_city), 'rb'))
+        open('D:/research/dataset/JGRM/didi_{}/{}_1101_1115_data_sample10w.pkl'.format(target_city, target_city), 'rb'))
     road_list = get_road(test_node_data)
     print('number of road obervased in test data: {}'.format(len(road_list)))
 
@@ -71,7 +71,7 @@ def evaluation(source_city, target_city, exp_path, model_name, start_time):
     test_node_data = (route_data, masked_route_assign_mat, gps_data, masked_gps_assign_mat, route_assign_mat, gps_length, dataset)
 
     update_road = 'route'
-    emb_path = 'D:/research/dataset/JMTR/didi_{}/{}_1101_1115_road_embedding_{}_{}_{}.pkl'.format(
+    emb_path = 'D:/research/dataset/JGRM/didi_{}/{}_1101_1115_road_embedding_{}_{}_{}.pkl'.format(
         target_city, target_city, embedding_name, num_samples, update_road)
 
     if os.path.exists(emb_path):
@@ -91,7 +91,7 @@ def evaluation(source_city, target_city, exp_path, model_name, start_time):
 
     # prepare sequence task
     test_seq_data = pickle.load(
-        open('D:/research/dataset/JMTR/didi_{}/{}_1101_1115_data_seq_evaluation.pkl'.format(target_city, target_city),
+        open('D:/research/dataset/JGRM/didi_{}/{}_1101_1115_data_seq_evaluation.pkl'.format(target_city, target_city),
              'rb'))
     test_seq_data = test_seq_data.sample(50000, random_state=0)
 
@@ -115,14 +115,14 @@ def evaluation(source_city, target_city, exp_path, model_name, start_time):
 
     # task 4
     # detour_base = pickle.load(
-    #     open('/data/mazp/dataset/JMTR/didi_{}/detour_base_max5.pkl'.format(city), 'rb'))
+    #     open('/data/mazp/dataset/JGRM/didi_{}/detour_base_max5.pkl'.format(city), 'rb'))
     #
     # sim_srh.evaluation2(seq_embedding, None, seq_model, test_seq_data, num_nodes, detour_base, feature_df,
     #                     detour_rate=0.15, fold=10)  # 当road_embedding为None的时候过模型处理，时间特征为空
 
-    geometry_df = pd.read_csv("D:/research/dataset/JMTR/didi_{}/edge_geometry.csv".format(target_city))
+    geometry_df = pd.read_csv("D:/research/dataset/JGRM/didi_{}/edge_geometry.csv".format(target_city))
 
-    trans_mat = np.load('D:/research/dataset/JMTR/didi_{}/transition_prob_mat.npy'.format(target_city))
+    trans_mat = np.load('D:/research/dataset/JGRM/didi_{}/transition_prob_mat.npy'.format(target_city))
     trans_mat = torch.tensor(trans_mat)
 
     sim_srh.evaluation3(seq_embedding, None, seq_model, test_seq_data, num_nodes, trans_mat, feature_df, geometry_df,
@@ -134,11 +134,12 @@ def evaluation(source_city, target_city, exp_path, model_name, start_time):
 
 if __name__ == '__main__':
 
+   
     source_city = 'xian'
     target_city = 'chengdu'
 
-    exp_path = 'D:/research/exp/JTMR_xian_230823032506'
-    model_name = 'JTMR_xian_v1_20_100000_230823032506_19.pt'
+    exp_path = 'D:/research/exp/JGRM_xian_230823032506'
+    model_name = 'JGRM_xian_v1_20_100000_230823032506_19.pt'
 
     start_time = time.time()
     log_path = os.path.join(exp_path, 'evaluation')
@@ -146,3 +147,4 @@ if __name__ == '__main__':
     # sys.stderr = Logger(log_path, start_time, stream=sys.stderr)  # record error
 
     evaluation(source_city, target_city, exp_path, model_name, start_time)
+

@@ -88,3 +88,31 @@ def evaluation(model, feature_df, fold=100):
     print(f'road classification     | micro F1: {micro_f1:.4f}, macro F1: {macro_f1:.4f}')
 
     # road_vis(x, y)
+
+
+# 5000 route / torch.cat([gps_road_joint_rep, route_road_joint_rep], dim=2)
+# road classification     | micro F1: 0.4620, macro F1: 0.3053
+
+# 5000 route / gps_road_joint_rep
+# road classification     | micro F1: 0.4373, macro F1: 0.2789
+
+# 5000 route / route_road_joint_rep
+# road classification     | micro F1: 0.4338, macro F1: 0.2821
+
+# 5000 route / torch.cat([gps_road_joint_rep.unsqueeze(2), route_road_joint_rep.unsqueeze(2)], dim=2)
+# road classification     | micro F1: 0.7170, macro F1: 0.6864
+
+
+# == Evaluation ===
+# (100000, 20)  evaluation 3
+# 6124
+# road classification     | micro F1: 0.6688, macro F1: 0.6611
+
+
+# (100000, 20) evaluation 2
+# 6124
+# road classification     | micro F1: 0.6663, macro F1: 0.6595
+
+# (100000, 20) evaluation 1
+# 6124
+# road classification     | micro F1: 0.6633, macro F1: 0.6591

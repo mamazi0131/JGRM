@@ -68,7 +68,7 @@ def train(config):
     model = JGRMModel(vocab_size, route_max_len, road_feat_num, road_embed_size, gps_feat_num,
                       gps_embed_size, route_embed_size, hidden_size, edge_index, drop_edge_rate, drop_route_rate, drop_road_rate, mode='x').cuda()
     # Modify it to your own directory
-    init_road_emb = torch.load('D:/research/dataset/JMTR/didi_{}/init_w2v_road_emb.pt'.format(city), map_location='cuda:{}'.format(dev_id))
+    init_road_emb = torch.load('D:/Project/git_jgrm/dataset/didi_{}/init_w2v_road_emb.pt'.format(city), map_location='cuda:{}'.format(dev_id))
     model.node_embedding.weight = torch.nn.Parameter(init_road_emb['init_road_embd'])
     model.node_embedding.requires_grad_(True)
     print('load parameters in device {}'.format(model.node_embedding.weight.device)) # check process device

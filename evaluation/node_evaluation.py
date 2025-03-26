@@ -80,6 +80,7 @@ def evaluation(city, exp_path, model_name, start_time):
 if __name__ == '__main__':
 
     city = 'chengdu'
+   
     exp_path = 'D:/research/exp/JTMR_chengdu_230913165723'
     model_name = 'JTMR_chengdu_v1_20_100000_230913165723_19.pt'
 
@@ -89,4 +90,5 @@ if __name__ == '__main__':
     # sys.stderr = Logger(log_path, start_time, stream=sys.stderr)  # record error
 
     evaluation(city, exp_path, model_name, start_time)
-    
+
+
