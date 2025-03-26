@@ -190,6 +190,4 @@ if __name__ == '__main__':
     target_city = 'xian'
     config = json.load(open('config/finetune_{}2{}.json'.format(source_city, target_city), 'r'))
     finetune(config)
-
-# road classification     | micro F1: 0.7248, macro F1: 0.6954
-# travel speed estimation | MAE: 2.4809, RMSE: 3.4118
+    
