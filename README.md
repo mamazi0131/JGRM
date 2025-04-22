@@ -2,7 +2,7 @@
 
 ## Latest News
 
-**📅 19/02/2025: WE RELEASE THE EXPANDED VERSIONS OF BOTH DATASETS AND FIXED THE ISSUES WITH THE PREVIOUS DATASET [HERE](https://pan.quark.cn/s/461b8477b9fe).**
+**📅 19/02/2025: WE RELEASE THE EXPANDED VERSIONS OF BOTH DATASETS AND FIXED THE ISSUES WITH THE PREVIOUS DATASET [HERE](https://pan.quark.cn/s/2196a91bc124). Unzip password is ‘dataset’**
 
 **📅 18/04/2024: FULL [SLIDE](https://www.slideshare.net/slideshow/more-than-routing-joint-gps-and-route-modeling-for-refine-trajectory-representation-learning/269319522) IS UPDATED.**
 
