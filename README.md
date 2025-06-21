@@ -29,7 +29,7 @@ faiss-cpu==1.7.4
 ## Dataset
 We recently revisited the project and discovered that the previously released dataset could not be imported due to transmission issues. We have re-uploaded and verified the relevant data, and further supplemented the dataset with a 200k version to facilitate comparison for everyone.
 
-You can access our data [here](https://pan.quark.cn/s/461b8477b9fe) **2025.02.19 UPDATED**.
+You can access our data [here](https://pan.quark.cn/s/2fd4ca186bf4) **2025.06.21 UPDATED**.
 
 The folder contains a total of two datasets, Chengdu and Xi'an. Each folder contains 7 files with the following file directory:
 ```
