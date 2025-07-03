@@ -2,7 +2,7 @@
 
 ## Latest News
 
-**📅 19/02/2025: WE RELEASE THE EXPANDED VERSIONS OF BOTH DATASETS AND FIXED THE ISSUES WITH THE PREVIOUS DATASET [HERE](https://pan.quark.cn/s/2196a91bc124). Unzip password is ‘dataset’**
+**📅 19/02/2025: WE RELEASE THE EXPANDED VERSIONS OF BOTH DATASETS AND FIXED THE ISSUES WITH THE PREVIOUS DATASET [HERE](https://drive.google.com/file/d/1w1fMautspOMG2B0Z2_mI16hsxRbRFywu/view?usp=drive_link). Unzip password is ‘dataset’**
 
 **📅 18/04/2024: FULL [SLIDE](https://www.slideshare.net/slideshow/more-than-routing-joint-gps-and-route-modeling-for-refine-trajectory-representation-learning/269319522) IS UPDATED.**
 
@@ -29,7 +29,7 @@ faiss-cpu==1.7.4
 ## Dataset
 We recently revisited the project and discovered that the previously released dataset could not be imported due to transmission issues. We have re-uploaded and verified the relevant data, and further supplemented the dataset with a 200k version to facilitate comparison for everyone.
 
-You can access our data [here](https://pan.quark.cn/s/2fd4ca186bf4) **2025.06.21 UPDATED**.
+You can access our data [here](https://drive.google.com/file/d/1w1fMautspOMG2B0Z2_mI16hsxRbRFywu/view?usp=drive_link) **2025.06.21 UPDATED**.
 
 The folder contains a total of two datasets, Chengdu and Xi'an. Each folder contains 7 files with the following file directory:
 ```
